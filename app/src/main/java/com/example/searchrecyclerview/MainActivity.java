@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
         recyclerView.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
         recyclerView.setAdapter(mAdapter);
 
-//        fetchContacts();
+        fetchContacts();
     }
 
     /**
