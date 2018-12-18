@@ -70,37 +70,37 @@ public class MainActivity extends AppCompatActivity implements ContactsAdapter.C
     /**
      * fetches json by making http calls
      */
-//    private void fetchContacts() {
-//        JsonArrayRequest request = new JsonArrayRequest(URL,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        if (response == null) {
-//                            Toast.makeText(getApplicationContext(), "Couldn't fetch the contacts! Pleas try again.", Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-//
-//                        List<Contact> items = new Gson().fromJson(response.toString(), new TypeToken<List<Contact>>() {
-//                        }.getType());
-//
-//                        // adding contacts to contacts list
-//                        contactList.clear();
-//                        contactList.addAll(items);
-//
-//                        // refreshing recycler view
-//                        mAdapter.notifyDataSetChanged();
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                // error in getting json
-//                Log.e(TAG, "Error: " + error.getMessage());
-//                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        MyApplication.getInstance().addToRequestQueue(request);
-//    }
+    private void fetchContacts() {
+        JsonArrayRequest request = new JsonArrayRequest(URL,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response == null) {
+                            Toast.makeText(getApplicationContext(), "Couldn't fetch the contacts! Pleas try again.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        List<Contact> items = new Gson().fromJson(response.toString(), new TypeToken<List<Contact>>() {
+                        }.getType());
+
+                        // adding contacts to contacts list
+                        contactList.clear();
+                        contactList.addAll(items);
+
+                        // refreshing recycler view
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // error in getting json
+                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        MyApplication.getInstance().addToRequestQueue(request);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
